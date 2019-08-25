@@ -14,7 +14,7 @@ class NaseejInventory(models.Model):
 class StockPicking(models.Model):
     _inherit = 'stock.picking'
 
-    pack_picking_id = fields.Many2one('stock.picking', 'Pack Picking', required=True)
+    pack_picking_id = fields.Many2one('stock.picking', 'Pack Picking')
     show_button_generate = fields.Boolean(string="show", default=True)
     after_click_button_generate = fields.Boolean(string="click", default=True)
     check_operation_type = fields.Boolean(string="click")
