@@ -14,16 +14,17 @@ class NaseejInventory(models.Model):
 class StockPicking(models.Model):
     _inherit = 'stock.picking'
 
-    pack_picking_id = fields.Many2one('stock.picking', 'Pack Picking')
+    pack_picking_id = fields.Many2one('stock.picking', 'Pack Picking', required=True)
     show_button_generate = fields.Boolean(string="show", default=True)
     after_click_button_generate = fields.Boolean(string="click", default=True)
-    check_operation_type = fields.Boolean(string="click", default=True)
+    check_operation_type = fields.Boolean(string="click")
 
+    #
     @api.onchange('picking_type_id')
     def _check_operation_type(self):
         for pick in self:
-            if pick.picking_type_id.code != 'internal':
-                self.check_operation_type = False
+            if pick.picking_type_id.code == 'internal':
+                self.check_operation_type = True
 
     @api.onchange('picking_type_id')
     def show_generate_btn(self):
