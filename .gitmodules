@@ -1,0 +1,4 @@
+[submodule "Odoo-Git2019/naseej"]
+	path = Odoo-Git2019/naseej
+	url = git@github.com:Odoo-Git2019/naseej.git
+	branch = master
