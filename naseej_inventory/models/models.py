@@ -18,7 +18,6 @@ class StockPicking(models.Model):
     show_button_generate = fields.Boolean(string="show", default=True)
     after_click_button_generate = fields.Boolean(string="click", default=True)
     check_operation_type = fields.Boolean(string="click")
-
     #
     @api.onchange('picking_type_id')
     def _check_operation_type(self):
